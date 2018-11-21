@@ -20,7 +20,7 @@ public class BaseBall {
 	private static Players Lary = new Players("Lary", .212);
 	private static Players Greg = new Players("Greg", 5.2, null);
 
-	static Players team1[] = { Garry, Charlie, David, John, Andy }; // Takes those objects and puts them in arrays to
+	static Players team1[] = { Garry, Charlie, David, John, Andy}; // Takes those objects and puts them in arrays to
 																	// add them to a team
 	static Players team2[] = { Frank, George, Henry, Lary, Greg };
 
@@ -35,7 +35,7 @@ public class BaseBall {
 								// by row & column
 	};
 
-	private static pos batterRow; // Holds location for which row the batter swung
+	private static pos batterRowwwwwwww; // Holds location for which row the batter swung
 	private static pos batterCol; // Holds location for which column the pitcher pitched
 	private static pos pitcherRow;
 	private static pos pitcherCol;
@@ -72,17 +72,21 @@ public class BaseBall {
 
 	private int chanceOfStats() { // Combines the scaled batting avg and Era numbers and w
 		int chance = chanceOfBatAvg - chanceOfEra;
+		chance *= 4;
 		return chance;
 	}
 
 	private int chanceOfSwing() { // Determines the chance of the batter hitting the ball
 		int chance = 0;
 		if (chanceOfPos() > 0) {
-
 			chance = chanceOfPos() + chanceOfStats();
 		}
-
 		return chance;
+	}
+	
+	public boolean hitsBall() {
+		int chanceOfMiss = 100 - chanceOfSwing();
+		return (1 + random.nextInt(99)) > chanceOfMiss;
 	}
 
 	public void selectTeam() {
@@ -111,6 +115,7 @@ public class BaseBall {
 			System.out.println("Chance of pos is: " + chanceOfPos());
 			System.out.println("Chance of stat is: " + chanceOfStats());
 			System.out.println("Chance of Swing is: " + chanceOfSwing());
+			System.out.println("Batter hit the ball: " + hitsBall());
 		}
 	}
 
