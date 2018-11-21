@@ -1,0 +1,259 @@
+import java.security.SecureRandom;
+import java.util.Scanner;
+
+public class TicTacToe {
+
+	static Scanner input = new Scanner(System.in);
+	static SecureRandom random = new SecureRandom();
+
+	private static String grid[][] = { { "A1", "A2", "A3" }, { "B1", "B2", "B3" }, { "C1", "C2", "C3" } };
+	private static int gameCounter = 0;
+	private static boolean runGame;
+        
+        private static String player1Char = null;
+        private static String player2Char = null;
+
+	public void mainTicTacToe() {
+
+		System.out.println("Enter amount of players (1-2)?");
+		int playerAmount = input.nextInt();
+		boolean isUser = true;
+
+		if (playerAmount == 1) {
+			isUser = false;
+		}
+
+		else if (playerAmount == 2) {
+			isUser = true;
+		}
+                
+                System.out.println("\n Would player1 like to be X's or O's");
+                System.out.println("[1] X's\n[2] O's");
+                int charSelect = input.nextInt();
+              
+                if (charSelect == 1) {
+                    player1Char = "X ";
+                    player2Char = "O ";
+                }
+                
+                else if (charSelect == 2) {
+                    player1Char = "O ";
+                    player2Char = "X ";
+                }
+
+		runGame = true;
+		while (runGame == true) {
+
+			printGrid();
+			inputGrid(player1Char, true);
+			checkWinner(player1Char );
+                        if (isUser == true) {
+                            printGrid();
+                        }
+			inputGrid(player2Char, isUser);
+			checkWinner(player2Char);
+		}
+	}
+
+	public void printGrid() {
+		System.out.println("     A   B   C");
+		System.out.println("  ________________");
+		System.out.println();
+		for (int rows = 0; rows < grid.length; rows++) {
+			System.out.print((rows + 1) + " | ");
+			for (int columns = 0; columns < grid[rows].length; columns++) {
+				System.out.print("[" + grid[rows][columns] + "]");
+			}
+			System.out.print(" |\n");
+		}
+		System.out.println("  ________________");
+	}
+
+	public void inputGrid(String inputGrid, boolean isUser) {
+		String select = null;
+		boolean doInput = true;
+		while (doInput == true) {
+
+			if (isUser == true) {
+				System.out.println("input");
+				select = input.next();
+			} else {
+				String compSelGrid[][] = { { "A1", "A2", "A3" }, { "B1", "B2", "B3" }, { "C1", "C2", "C3" } };
+				select = compSelGrid[random.nextInt(3)][random.nextInt(3)];
+			}
+
+			switch (select.toUpperCase()) {
+
+			case "A1":
+				if (grid[0][0] == "A1") {
+					grid[0][0] = inputGrid;
+					doInput = false;
+					gameCounter++;
+				} else {
+					if (isUser == true) {
+						System.out.println("That spot was already selected");
+					}
+				}
+				break;
+			case "A2":
+				if (grid[0][1] == "A2") {
+					grid[0][1] = inputGrid;
+					doInput = false;
+					gameCounter++;
+				} else {
+					if (isUser == true) {
+						System.out.println("That spot was already selected");
+					}
+				}
+				break;
+			case "A3":
+				if (grid[0][2] == "A3") {
+					grid[0][2] = inputGrid;
+					doInput = false;
+					gameCounter++;
+				} else {
+					if (isUser == true) {
+						System.out.println("That spot was already selected");
+					}
+				}
+				break;
+			case "B1":
+				if (grid[1][0] == "B1") {
+					grid[1][0] = inputGrid;
+					doInput = false;
+					gameCounter++;
+				} else {
+					if (isUser == true) {
+						System.out.println("That spot was already selected");
+					}
+				}
+				break;
+			case "B2":
+				if (grid[1][1] == "B2") {
+					grid[1][1] = inputGrid;
+					doInput = false;
+					gameCounter++;
+				} else {
+					if (isUser == true) {
+						System.out.println("That spot was already selected");
+					}
+				}
+				break;
+			case "B3":
+				if (grid[1][2] == "B3") {
+					grid[1][2] = inputGrid;
+					doInput = false;
+					gameCounter++;
+				} else {
+					if (isUser == true) {
+						System.out.println("That spot was already selected");
+					}
+				}
+				break;
+			case "C1":
+				if (grid[2][0] == "C1") {
+					grid[2][0] = inputGrid;
+					doInput = false;
+					gameCounter++;
+				} else {
+					if (isUser == true) {
+						System.out.println("That spot was already selected");
+						break;
+					}
+				}
+				break;
+			case "C2":
+				if (grid[2][1] == "C2") {
+					grid[2][1] = inputGrid;
+					doInput = false;
+					gameCounter++;
+				} else {
+					if (isUser == true) {
+						System.out.println("That spot was already selected");
+					}
+				}
+				break;
+			case "C3":
+				if (grid[2][2] == "C3") {
+					grid[2][2] = inputGrid;
+					doInput = false;
+					gameCounter++;
+				} else {
+					if (isUser == true) {
+						System.out.println("That spot was already selected");
+					}
+				}
+				break;
+			default:
+				if (isUser == true) {
+					System.out.println("That was not a correct response");
+				}
+			}
+		}
+	}
+
+	public void checkWinner(String input) {
+		// Winning across
+		if (grid[0][0] == input && grid[0][1] == input && grid[0][2] == input) {
+			displayWinner(input);
+			runGame = false;
+		}
+
+		else if (grid[1][0] == input && grid[1][1] == input && grid[1][2] == input) {
+			displayWinner(input);
+			runGame = false;
+		}
+
+		else if (grid[2][0] == input && grid[2][1] == input && grid[2][2] == input) {
+			displayWinner(input);
+			runGame = false;
+		}
+
+		// Winning vertically
+		else if (grid[0][0] == input && grid[1][0] == input && grid[2][0] == input) {
+			displayWinner(input);
+			runGame = false;
+		}
+
+		else if (grid[0][1] == input && grid[1][1] == input && grid[2][1] == input) {
+			displayWinner(input);
+			runGame = false;
+		}
+
+		else if (grid[0][2] == input && grid[1][2] == input && grid[2][2] == input) {
+			displayWinner(input);
+			runGame = false;
+		}
+
+		// Winning diagnolly
+		else if (grid[0][0] == input && grid[1][1] == input && grid[2][2] == input) {
+			displayWinner(input);
+			runGame = false;
+		}
+
+		else if (grid[0][2] == input && grid[1][1] == input && grid[2][0] == input) {
+			displayWinner(input);
+			runGame = false;
+		}
+
+		else if (gameCounter >= 9) {
+			System.out.println("Tie game");
+			runGame = false;
+		}
+	}
+
+	public void displayWinner(String input) {
+		String name = null;
+                printGrid();
+		if (input == player1Char) {
+			name = "User";
+                        System.out.println(name + " won!");
+                        
+		} else if (input == player2Char) {
+			name = " User2";
+                        System.out.println(name + " won!");
+                        
+		}
+		
+	}
+}

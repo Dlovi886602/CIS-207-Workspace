@@ -1,0 +1,8 @@
+
+public class typesOfPitches {
+	
+	
+	public typesOfPitches(String ball) {
+		
+	}
+}
