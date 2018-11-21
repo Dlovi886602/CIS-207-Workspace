@@ -9,18 +9,19 @@ public class BaseBall {
 	private final int[][] strikeZone = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } }; // Represents a "strikeZone"
 
 	// Creates objects from the 'players' constructor class
-	private static Players Garry = new Players("Garry", .320);
-	private static Players Charlie = new Players("Charlie", .254);
-	private static Players David = new Players("David", .211);
-	private static Players John = new Players("John", .302);
-	private static Players Andy = new Players("Andy", 3.8, null);
-	private static Players Frank = new Players("Frank", .198);
-	private static Players George = new Players("George", .278);
-	private static Players Henry = new Players("Henry", .323);
-	private static Players Lary = new Players("Lary", .212);
-	private static Players Greg = new Players("Greg", 5.2, null);
+	private static Players Betts = new Players("Betts", .346);
+	    private static Players Martinez = new Players("Martinez", .330);
+	    private static Players Benintendi = new Players("Benintendi", .290);
+	    private static Players Bogaerts = new Players("Bogaerts", .288);
+	    private static Players Price = new Players("Price", 3.58, "p");
+	    private static Players Barnes = new Players("Barnes", 1.04, "p");
+	    private static Players Frank = new Players("Frank", .198);
+	    private static Players George = new Players("George", .278);
+	    private static Players Henry = new Players("Henry", .323);
+	    private static Players Lary = new Players("Lary", .212);
+	    private static Players Greg = new Players("Greg", 5.2, "p");
 
-	static Players team1[] = { Garry, Charlie, David, John, Andy }; // Takes those objects and puts them in arrays to
+		static Players team1[] = { Betts, Martinez, Benintendi, Bogaerts, Price, Barnes }; // Takes those objects and puts them in arrays to
 																	// add them to a team
 	static Players team2[] = { Frank, George, Henry, Lary, Greg };
 
