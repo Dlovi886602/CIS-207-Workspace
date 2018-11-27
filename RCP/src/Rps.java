@@ -53,6 +53,7 @@ public class Rps {
 		System.out.println();
 		System.out.println();
 		System.out.println("Enter 1 for Rock, 2 for paper, or 3 for scissors."); // Begining instructions
+		//Does the line above get deleted with the updated code?
 
 		while (runGame == true) {
 
@@ -65,7 +66,7 @@ public class Rps {
 			}
 
 			System.out.println();
-			playerSel = input.nextInt(); // holds value for user input
+			playerSel = Main.getInputFromUser("Enter 1 for Rock, 2 for paper, or 3 for scissors/", 1, 3); // holds value for user input
 			System.out.println();
 			convertToEnum(true, playerSel, playerName); // Converts user input to enum
 
