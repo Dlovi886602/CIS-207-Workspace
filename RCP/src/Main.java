@@ -12,9 +12,8 @@ public class Main {
 		
 		System.out.println("Select which game you would like to play");
 		System.out.println("[1] Rock, Paper, Scissors\n[2] Tic-Tac-Toe\n[3] Baseball");
-		int selection = input.nextInt();
-
-		switch (selection) {
+		
+		switch ((getInputFromUser("Select which game you would like to play", 1, 3) {
 		case 1:
 			rps.mainRps();
 			break;
