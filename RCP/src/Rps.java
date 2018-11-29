@@ -53,21 +53,19 @@ public class Rps {
 		System.out.println();
 		System.out.println();
 		System.out.println("Enter 1 for Rock, 2 for paper, or 3 for scissors."); // Begining instructions
-		//Does the line above get deleted with the updated code?
 
 		while (runGame == true) {
 
 			int playerSel;
 			int compSel;
 
-			System.out.println("\n\nSelect an option\n________________"); // Prints out RPC options menu
 			for (int counter = 0; counter < menu.length; counter++) {
 				System.out.printf("%n[%d] " + menu[counter], (counter + 1));
 			}
 
 			System.out.println();
-			playerSel = Main.getInputFromUser("Enter 1 for Rock, 2 for paper, or 3 for scissors/", 1, 3); // holds value for user input
-			System.out.println();
+			playerSel = Main.getInputFromUser ("\n\nSelect an option\n________________", 1, 3);
+			//prints and tests RPC Options menu
 			convertToEnum(true, playerSel, playerName); // Converts user input to enum
 
 			System.out.println();
